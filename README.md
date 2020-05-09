@@ -1,4 +1,4 @@
-# Books and authors (simple)
+# Books and authors (view model options and custom layouts)
 
 This is a sample application for the [Dynamic View-Model Lists (DynamicVML)](https://dynamic-mvl.github.io/) Razor Components Library (RCL).
 
