@@ -19,6 +19,6 @@ create view models for display options associated with each item in a list, e.g.
 titles and subtitles.
 
 
-Project: https://github.com/dynamic-mvl/dvml
+Project: https://github.com/dynamic-vml/dvml
 
-Website: https://dynamic-mvl.github.io/
+Website: https://dynamic-vml.github.io/
