@@ -1,0 +1,21 @@
+﻿@using DynamicVML
+@using DynamicVML.Extensions
+@model BookAuthors.ViewModels.IMyOptions
+
+@* This is a custom template that you can customize to your liking *@
+
+<div class="card">
+    <div class="card-header container-fluid">
+        <div class="row">
+            <div class="col-10">
+                <div class="card-title"><h5>@Model.Title</h5></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card-subtitle text-muted">@Model.Subtitle</div>
+        </div>
+    </div>
+    <div class="card-body">
+        @Html.RenderDynamicItemDisplay()
+    </div>
+</div>

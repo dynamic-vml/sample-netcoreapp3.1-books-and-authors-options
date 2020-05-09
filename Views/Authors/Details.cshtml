@@ -1,0 +1,47 @@
+﻿@model BookAuthors.ViewModels.AuthorViewModel
+@using DynamicVML
+@using DynamicVML.Extensions
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Author</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Books)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayListFor(model => model.Books,
+
+                // specify a more fancy custom template so we can control the item's display
+                itemContainerTemplate: "CustomItemTemplateWithMyOptions")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts{
+
+    <!-- Load JS code for the Dynamic ViewModel Lists above -->
+    <script src="~/lib/dynamic-viewmodel-list/dvml.js"></script>
+
+}

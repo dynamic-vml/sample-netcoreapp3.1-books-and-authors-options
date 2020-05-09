@@ -1,0 +1,56 @@
+﻿@model BookAuthors.ViewModels.AuthorViewModel
+@using DynamicVML
+@using DynamicVML.Extensions
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Author</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div>
+                <h3>Books</h3>
+
+                @Html.ListEditorFor(x => x.Books, Url.Action("AddBook"), "Add new book",
+
+                    // specify a more fancy custom template so we can control the item's display
+                    itemContainerTemplate: "CustomItemTemplateWithMyOptions",
+
+                    // specify a list container template so we can customize the "Add" button
+                    listContainerTemplate: "CustomListTemplateWithFancyButton")
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+
+    <!-- Load JS code for the Dynamic ViewModel Lists above -->
+    <script src="~/lib/dynamic-viewmodel-list/dvml.js"></script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
